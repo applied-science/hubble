@@ -16,7 +16,7 @@ applied-science/hubble {:git/url "https://github.com/appliedsciencestudio/hubble
 
 ``` clojure
 (ns test
-  (:require [applied-science.hubble :refer [plot-vega-lite! keep-on-top!]))
+  (:require [applied-science.hubble :refer [plot-vega-lite! keep-on-top!]]))
 
 ;; pops up a window containing this visualization
 (plot-vega-lite!
