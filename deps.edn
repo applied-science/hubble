@@ -1,0 +1,23 @@
+{:paths ["src" "resources"]
+ :deps {org.clojure/clojure {:mvn/version "1.10.1"}
+        metosin/jsonista {:mvn/version "0.2.5"}
+        seesaw {:mvn/version "1.5.0"}
+        org.apache.xmlgraphics/batik-dom {:mvn/version "1.12"}
+        org.apache.xmlgraphics/batik-swing {:mvn/version "1.12"}
+        applied-science/darkstar {:git/url "https://github.com/appliedsciencestudio/darkstar/"
+                                  :sha "541a3ff36065c59e92fe6aa61e41a4385ba6f893"}}
+ :aliases
+ {:test {:extra-paths ["test"]
+         :extra-deps {org.clojure/test.check {:mvn/version "0.10.0"}}}
+  :runner
+  {:extra-deps {com.cognitect/test-runner
+                {:git/url "https://github.com/cognitect-labs/test-runner"
+                 :sha "f7ef16dc3b8332b0d77bc0274578ad5270fbfedd"}}
+   :main-opts ["-m" "cognitect.test-runner"
+               "-d" "test"]}
+  :jar {:extra-deps {seancorfield/depstar {:mvn/version "0.5.2"}}
+        :main-opts ["-m" "hf.depstar.jar" "hubble.jar"]}
+  :install {:extra-deps {deps-deploy {:mvn/version "0.0.9"}}
+            :main-opts ["-m" "deps-deploy.deps-deploy" "install" "hubble.jar"]}
+  :deploy {:extra-deps {deps-deploy {:mvn/version "0.0.9"}}
+           :main-opts ["-m" "deps-deploy.deps-deploy" "deploy" "hubble.jar"]}}}
